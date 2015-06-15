@@ -8,6 +8,8 @@ public class GameGlobals : MonoBehaviour {
 
 	public static float autoRahe = 1f;
 	public static int clickRahe = 1;
+
+	public static int increasePrize = 10;
 	
 
 	public static int GetRahe()
@@ -48,6 +50,16 @@ public class GameGlobals : MonoBehaviour {
 	public static void SetAyy(int tempAyy)
 	{
 		ayyyluminium = tempAyy;
+	}
+
+	public static int GetIncreasePrize()
+	{
+		return increasePrize;
+	}
+	
+	public static void SetIncreasePrize(int tempIp)
+	{
+		increasePrize = tempIp;
 	}
 
 
