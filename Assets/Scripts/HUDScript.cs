@@ -9,7 +9,6 @@ public class HUDScript : MonoBehaviour {
 	public Text HUDIncrease;
 	public Text HUDClick;
 	public Text HUDCurrentClick;
-	public Text HUDAyyPrice;
 	public Text HUDAutoPrice;
 	public Text HUDRootPrice;
 
@@ -18,46 +17,43 @@ public class HUDScript : MonoBehaviour {
 	private string screenIncrease;
 	private string screenClick;
 	private string screenCurrentClick;
-	private string screenAyyPrice;
 	private string screenAutoPrice;
 	private string screenRootPrice;
 
-	private bool autorahe1buy;
+	private bool h_autorahe1buy;
 
 	public Button autoRahe1;
 	public Button increaseAuto;
 	public Button raheButton;
 	public Button clickIncrease;
-	public Button buyAyy;
 	public Button rootIncreaseButton;
+	public Button toShop;
+	public Button toBattle;
 
 	private int rahe;
-	private int rahePerSecond;
-	private int rahePrize;
-	private int clickPrize;
 	private int currentClick;
-	private int ayyPrice;
-	private int autoPrice;
-	private int rootPrice;
+	private int h_rahePerSecond;
+	private int h_rahePrize;
+	private int h_clickPrize;
+	private int h_autoPrice;
+	private int h_rootPrice;
 	
 	void Start () {
-		autoRahe1.interactable = false;
-		increaseAuto.interactable = false;
-		autorahe1buy = true;
+		h_autorahe1buy = GameGlobals.GetAutoRahe1buy ();
 
-		rahePrize = 100;
-		clickPrize = 16;
-		ayyPrice = 100;
-		autoPrice = 20;
-		rahePerSecond = 0;
-		rootPrice = 1;
+		h_autoPrice = GameGlobals.GetAutoPrice();
+		h_rahePrize = GameGlobals.GetRahePrize();
+		h_clickPrize = GameGlobals.GetClickPrize ();
+		h_autoPrice = GameGlobals.GetAutoPrice ();
+		h_rootPrice = GameGlobals.GetRootPrice ();
 
 		raheButton = raheButton.GetComponent<Button>();
 		autoRahe1 = autoRahe1.GetComponent<Button>();
 		increaseAuto = increaseAuto.GetComponent<Button> ();
 		clickIncrease = clickIncrease.GetComponent<Button> ();
-		buyAyy = buyAyy.GetComponent<Button> ();
 		rootIncreaseButton = rootIncreaseButton.GetComponent<Button> ();
+		toShop = toShop.GetComponent<Button> ();
+		toBattle = toBattle.GetComponent<Button> ();
 
 		AutoRahe ();
 
@@ -74,50 +70,42 @@ public class HUDScript : MonoBehaviour {
 		screenAyy = GameGlobals.ayyyluminium.ToString();
 		HUDAyy.text = "Ayyyluminium: " + screenAyy;
 
-		screenIncrease = rahePrize.ToString();
+		screenIncrease = h_rahePrize.ToString();
 		HUDIncrease.text = "Enhance AutoClicker (" + screenIncrease + " Rahe)";
 
-		screenClick = clickPrize.ToString();
+		screenClick = h_clickPrize.ToString();
 		HUDClick.text = "Increase Rahe from clicks (" + screenClick + " Rahe)";
 
 		screenCurrentClick = currentClick.ToString();
 		HUDCurrentClick.text = "Current Rahe from a click: " + screenCurrentClick;
 
-		screenAyyPrice = ayyPrice.ToString();
-		HUDAyyPrice.text = "Buy Ayyluminium (" + screenAyyPrice + " Rahe)";
-
-		screenAutoPrice = autoPrice.ToString();
+		screenAutoPrice = h_autoPrice.ToString();
 		HUDAutoPrice.text = "Buy Auto Clicker (" + screenAutoPrice + " Rahe)";
 
-		screenRootPrice = rootPrice.ToString();
+		screenRootPrice = h_rootPrice.ToString();
 		HUDRootPrice.text = "Increase auto clicker root (" + screenRootPrice + " Ayyyluminium)";
 
-		if (GameGlobals.rahe >= autoPrice && autorahe1buy == true) {
+		if (GameGlobals.rahe >= h_autoPrice && h_autorahe1buy == true) {
 			autoRahe1.interactable = true;
 		} else {
 			autoRahe1.interactable = false;
 		}
 
-		if (GameGlobals.rahe >= rahePrize && autorahe1buy == false) {
+		if (GameGlobals.rahe >= h_rahePrize && h_autorahe1buy == false) {
 			increaseAuto.interactable = true;
 		} else {
 			increaseAuto.interactable = false;
 		}
 
 
-		if (GameGlobals.rahe >= clickPrize) {
+		if (GameGlobals.rahe >= h_clickPrize) {
 			clickIncrease.interactable = true;
 		} else {
 			clickIncrease.interactable = false;
 		}
 
-		if (GameGlobals.rahe >= ayyPrice) {
-			buyAyy.interactable = true;
-		} else {
-			buyAyy.interactable = false;
-		}
 
-		if (GameGlobals.ayyyluminium >= rootPrice && autorahe1buy == false) {
+		if (GameGlobals.ayyyluminium >= h_rootPrice && h_autorahe1buy == false) {
 			rootIncreaseButton.interactable = true;
 		} else {
 			rootIncreaseButton.interactable = false;
@@ -129,7 +117,7 @@ public class HUDScript : MonoBehaviour {
 	void AutoRahe()
 	{
 		rahe = GameGlobals.GetRahe();
-		rahe = rahe + rahePerSecond;
+		rahe = rahe + h_rahePerSecond;
 		GameGlobals.SetRahe (rahe);
 		Invoke ("AutoRahe", GameGlobals.autoRahe);
 	}
@@ -141,9 +129,11 @@ public class HUDScript : MonoBehaviour {
 
 		tempRahe = tempRahe -20;
 		GameGlobals.SetRahe(tempRahe);
-		rahePerSecond ++;
+		h_rahePerSecond ++;
+		GameGlobals.SetRahePerSecond (h_rahePerSecond);
 
-		autorahe1buy = false;
+		h_autorahe1buy = false;
+		GameGlobals.SetAutoRahe1buy(false);
 		autoRahe1.interactable = false;
 		
 	}
@@ -152,10 +142,13 @@ public class HUDScript : MonoBehaviour {
 	{
 		int tempAyy;
 		tempAyy = GameGlobals.GetAyy();
-		tempAyy = tempAyy - rootPrice;
-		rahePerSecond ++;
+		tempAyy = tempAyy - h_rootPrice;
+		h_rahePerSecond ++;
 		GameGlobals.SetAyy(tempAyy);
-		rootPrice = rootPrice * 2;
+		GameGlobals.SetRahePerSecond (h_rahePerSecond);
+
+		h_rootPrice = h_rootPrice * 2;
+		GameGlobals.SetRootPrice (h_rootPrice);
 	}
 
 	public void RaheGains()
@@ -178,12 +171,13 @@ public class HUDScript : MonoBehaviour {
 		tempRahe = GameGlobals.GetRahe();
 
 		speed = speed/1.5f;
-		tempRahe = tempRahe - rahePrize;
+		tempRahe = tempRahe - h_rahePrize;
 		GameGlobals.SetRahe (tempRahe);
 
-		rahePrize = rahePrize * newPrize;
+		h_rahePrize = h_rahePrize * newPrize;
 		newPrize = newPrize * 2;
 
+		GameGlobals.SetRahePrize (h_rahePrize);
 		GameGlobals.SetAuto (speed);
 		GameGlobals.SetIncreasePrize (newPrize);
 	}
@@ -197,9 +191,11 @@ public class HUDScript : MonoBehaviour {
 		click = GameGlobals.GetClick ();
 
 		click++;
-		tempRahe = tempRahe - clickPrize;
+		tempRahe = tempRahe - h_clickPrize;
 		GameGlobals.SetClick (click);
-		clickPrize = clickPrize * 2;
+		h_clickPrize = h_clickPrize * 2;
+
+		GameGlobals.SetClickPrize (h_clickPrize);
 		GameGlobals.SetRahe (tempRahe);
 
 	}
@@ -216,5 +212,15 @@ public class HUDScript : MonoBehaviour {
 		tempRahe = tempRahe -100;
 		GameGlobals.SetRahe(tempRahe);
 
+	}
+
+	public void ToTheShop()
+	{
+		Application.LoadLevel (3);
+	}
+
+	public void ToTheBattle()
+	{
+		Application.LoadLevel (1);
 	}
 }

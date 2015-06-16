@@ -8,14 +8,21 @@ public class GameGlobals : MonoBehaviour {
 	public static int titayyynium = 0;
 	public static int ayyyntimatter = 0;
 	public static int fiftAyyylement = 0;
-	public static int ammo = 10;
+
+	public static int ammo = 1000;
 	public static int hp = 100;
 
 	public static float autoRahe = 1f;
 	public static int clickRahe = 1;
+	public static int rahePerSecond = 0;
 
 	public static int increasePrize = 10;
-	
+	public static int rahePrize = 100;
+	public static int clickPrize = 16;
+	public static int autoPrice = 20;
+	public static int rootPrice = 1;
+
+	public static bool autorahe1buy = true;
 
 	public static int GetRahe()
 	{
@@ -117,6 +124,64 @@ public class GameGlobals : MonoBehaviour {
 		hp = tempHp;
 	}
 	
+	public static int GetRahePerSecond()
+	{
+		return rahePerSecond;
+	}
+	
+	public static void SetRahePerSecond(int tempRPS)
+	{
+		rahePerSecond = tempRPS;
+	}
 
+	public static int GetRahePrize()
+	{
+		return rahePrize;
+	}
+	
+	public static void SetRahePrize(int tempRP)
+	{
+		rahePrize = tempRP;
+	}
+
+	public static int GetClickPrize()
+	{
+		return clickPrize;
+	}
+	
+	public static void SetClickPrize(int tempCP)
+	{
+		clickPrize = tempCP;
+	}
+
+	public static int GetAutoPrice()
+	{
+		return autoPrice;
+	}
+	
+	public static void SetAutoPrice(int tempAP)
+	{
+		autoPrice = tempAP;
+	}
+
+	public static int GetRootPrice()
+	{
+		return rootPrice;
+	}
+	
+	public static void SetRootPrice(int tempRP)
+	{
+		rootPrice = tempRP;
+	}
+	
+	public static bool GetAutoRahe1buy()
+	{
+		return autorahe1buy;
+	}
+	
+	public static void SetAutoRahe1buy(bool AR1B)
+	{
+		autorahe1buy = AR1B;
+	}
 
 }
