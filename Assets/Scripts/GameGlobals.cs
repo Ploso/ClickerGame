@@ -11,18 +11,24 @@ public class GameGlobals : MonoBehaviour {
 
 	public static int ammo = 1000;
 	public static int hp = 100;
+	public static int shield = 0;
+	public static int maxShield = 0;
 
 	public static float autoRahe = 1f;
 	public static int clickRahe = 1;
 	public static int rahePerSecond = 0;
 
 	public static int increasePrize = 10;
-	public static int rahePrize = 100;
+	public static int rahePrize = 1;
 	public static int clickPrize = 16;
 	public static int autoPrice = 20;
 	public static int rootPrice = 1;
 
+	public static int currentLevel = 1;
+	public static int mapLength = 600;
+
 	public static bool autorahe1buy = true;
+	public static bool shieldUnBought = true;
 
 	public static int GetRahe()
 	{
@@ -184,4 +190,54 @@ public class GameGlobals : MonoBehaviour {
 		autorahe1buy = AR1B;
 	}
 
+	public static int GetCurrentLevel()
+	{
+		return currentLevel;
+	}
+	
+	public static void SetCurrentLevel(int tempLevel)
+	{
+		currentLevel = tempLevel;
+	}
+
+	public static int GetMapLength()
+	{
+		return mapLength;
+	}
+	
+	public static void SetMapLength(int tempLength)
+	{
+		mapLength = tempLength;
+	}
+
+	public static int GetShield()
+	{
+		return shield;
+	}
+	
+	public static void SetShield(int tempShield)
+	{
+		shield = tempShield;
+	}
+
+	public static int GetMaxShield()
+	{
+		return maxShield;
+	}
+	
+	public static void SetMaxShield(int tempShield)
+	{
+		maxShield = tempShield;
+	}
+	
+	public static bool GetShieldBought()
+	{
+		return shieldUnBought;
+	}
+	
+	public static void SetShieldBought(bool ssb)
+	{
+		shieldUnBought = ssb;
+	}
+	
 }

@@ -92,7 +92,12 @@ MonoBehaviour:
   enemyDmg: 9
   hit: 300
   speed: .00100000005
+  bounty: 0
   sprite: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: 469803fa344d7984fa9c41b2b593a0cc, type: 3}
+  cursorTexture2: {fileID: 2800000, guid: 9bbb012345da893469aab56fc2c7d787, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!212 &21215108
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -88,11 +88,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecac82d1954bcd640a5cefa9e4f0503f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
+  life: 2
   enemyDmg: 7
   hit: 300
   speed: .00100000005
+  bounty: 0
   sprite: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: 469803fa344d7984fa9c41b2b593a0cc, type: 3}
+  cursorTexture2: {fileID: 2800000, guid: 9bbb012345da893469aab56fc2c7d787, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!212 &21208136
 SpriteRenderer:
   m_ObjectHideFlags: 1

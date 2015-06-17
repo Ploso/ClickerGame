@@ -9,9 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 414332}
   - 212: {fileID: 21234454}
-  - 61: {fileID: 6143494}
   - 50: {fileID: 5067852}
   - 114: {fileID: 11404556}
+  - 95: {fileID: 9536064}
+  - 58: {fileID: 5862222}
   m_Layer: 8
   m_Name: Moro3
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 108256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.53999996, y: -1.10000002, z: 0}
-  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
+  m_LocalScale: {x: .0399999991, y: .0399999991, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,8 +47,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6143494
-BoxCollider2D:
+--- !u!58 &5862222
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -56,9 +57,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -1.49011612e-06, y: -.0250166655}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.69137263, y: 5.14300728}
+  m_Radius: 2.33999991
+--- !u!95 &9536064
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3303290aed47494eb44892752d5b943, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11404556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,11 +88,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecac82d1954bcd640a5cefa9e4f0503f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 2
+  life: 1
   enemyDmg: 2
-  hit: 75
-  speed: .0399999991
+  hit: 40
+  speed: .00999999978
+  bounty: 0
   sprite: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: 469803fa344d7984fa9c41b2b593a0cc, type: 3}
+  cursorTexture2: {fileID: 2800000, guid: 9bbb012345da893469aab56fc2c7d787, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!212 &21234454
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,7 +122,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 283c63d2000a9c94981c18b394e36499, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fef5906fb6e7da244a988beadcc7cd60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

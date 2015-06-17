@@ -11,15 +11,23 @@ public class MöröBehavior : MonoBehaviour {
 	public int enemyDmg;
 	public int hit;
 	public float speed;
+	public int bounty;
+	private int p_shield;
 
 	public SpriteRenderer sprite;
 	private int sortingOrder;
+
+	public Texture2D cursorTexture;
+	public Texture2D cursorTexture2;
+	public CursorMode cursorMode = CursorMode.Auto;
+	public Vector2 hotSpot = Vector2.zero;
 
 	void Start () {
 		dmg = true;
 		approach = 0;
 		sprite = GetComponent<SpriteRenderer> ();
 		sortingOrder = 0;
+		p_shield = GameGlobals.GetShield ();
 
 		playerHp = GameGlobals.GetHp ();
 		if (gameObject.name.Contains ("Moro2"))
@@ -30,6 +38,7 @@ public class MöröBehavior : MonoBehaviour {
 	
 
 	void Update () {
+
 		ammo = GameGlobals.GetAmmo ();
 		sprite.sortingOrder = sortingOrder;
 
@@ -43,8 +52,12 @@ public class MöröBehavior : MonoBehaviour {
 		}
 	
 		if (life <= 0) {
+			bounty = GameGlobals.GetRahe();
+			bounty++;
+			GameGlobals.SetRahe(bounty);
 			dmg = false;
 			Destroy(gameObject);
+
 		}
 	}
 
@@ -55,13 +68,30 @@ public class MöröBehavior : MonoBehaviour {
 		}
 	}
 
+	void OnMouseEnter()
+	{
+		Cursor.SetCursor (cursorTexture, hotSpot, cursorMode);
+	}
+
+	void OnMouseExit()
+	{
+		Cursor.SetCursor (cursorTexture2, hotSpot, cursorMode);
+	}
+
 	void OnDestroy()
 	{
 		if (dmg == true) {
-			playerHp = GameGlobals.GetHp ();
-			playerHp = playerHp - enemyDmg;
-			GameGlobals.SetHp (playerHp);
+			if (p_shield >= 0){
+				p_shield = GameGlobals.GetShield();
+				p_shield = p_shield -enemyDmg;
+				GameGlobals.SetShield(p_shield);
+			} else {
+				playerHp = GameGlobals.GetHp ();
+				playerHp = playerHp - enemyDmg;
+				GameGlobals.SetHp (playerHp);
+			}
 		}
 		dmg = true;
+		Cursor.SetCursor (cursorTexture2, hotSpot, cursorMode);
 	}
 }

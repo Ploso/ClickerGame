@@ -6,6 +6,10 @@ public class HUDScript : MonoBehaviour {
 
 	public Text HUDRahe;
 	public Text HUDAyy;
+	public Text HUDTita;
+	public Text HUDAnti;
+	public Text HUDFift;
+
 	public Text HUDIncrease;
 	public Text HUDClick;
 	public Text HUDCurrentClick;
@@ -14,6 +18,10 @@ public class HUDScript : MonoBehaviour {
 
 	private string screenRahe;
 	private string screenAyy;
+	private string screenTita;
+	private string screenAnti;
+	private string screenFift;
+
 	private string screenIncrease;
 	private string screenClick;
 	private string screenCurrentClick;
@@ -37,7 +45,12 @@ public class HUDScript : MonoBehaviour {
 	private int h_clickPrize;
 	private int h_autoPrice;
 	private int h_rootPrice;
-	
+
+	public Texture2D cursorTexture;
+	public CursorMode cursorMode = CursorMode.Auto;
+	public Vector2 hotSpot = Vector2.zero;
+
+
 	void Start () {
 		h_autorahe1buy = GameGlobals.GetAutoRahe1buy ();
 
@@ -48,7 +61,9 @@ public class HUDScript : MonoBehaviour {
 		h_rootPrice = GameGlobals.GetRootPrice ();
 
 		raheButton = raheButton.GetComponent<Button>();
-		autoRahe1 = autoRahe1.GetComponent<Button>();
+		if (autoRahe1) {
+			autoRahe1 = autoRahe1.GetComponent<Button> ();
+		}
 		increaseAuto = increaseAuto.GetComponent<Button> ();
 		clickIncrease = clickIncrease.GetComponent<Button> ();
 		rootIncreaseButton = rootIncreaseButton.GetComponent<Button> ();
@@ -56,6 +71,7 @@ public class HUDScript : MonoBehaviour {
 		toBattle = toBattle.GetComponent<Button> ();
 
 		AutoRahe ();
+		DestroyAutorahe ();
 
 	}
 
@@ -70,8 +86,17 @@ public class HUDScript : MonoBehaviour {
 		screenAyy = GameGlobals.ayyyluminium.ToString();
 		HUDAyy.text = "Ayyyluminium: " + screenAyy;
 
+		screenTita = GameGlobals.titayyynium.ToString();
+		HUDTita.text = "Titayyynium: " + screenTita;
+
+		screenAnti = GameGlobals.ayyyntimatter.ToString();
+		HUDAnti.text = "Ayyyntimatter: " + screenAnti;
+
+		screenFift = GameGlobals.fiftAyyylement.ToString();
+		HUDFift.text = "Fifth Ayyylement: " + screenFift;
+
 		screenIncrease = h_rahePrize.ToString();
-		HUDIncrease.text = "Enhance AutoClicker (" + screenIncrease + " Rahe)";
+		HUDIncrease.text = "Enhance Auto Clicker (" + screenIncrease + " Titayyynium)";
 
 		screenClick = h_clickPrize.ToString();
 		HUDClick.text = "Increase Rahe from clicks (" + screenClick + " Rahe)";
@@ -79,19 +104,23 @@ public class HUDScript : MonoBehaviour {
 		screenCurrentClick = currentClick.ToString();
 		HUDCurrentClick.text = "Current Rahe from a click: " + screenCurrentClick;
 
-		screenAutoPrice = h_autoPrice.ToString();
-		HUDAutoPrice.text = "Buy Auto Clicker (" + screenAutoPrice + " Rahe)";
-
-		screenRootPrice = h_rootPrice.ToString();
-		HUDRootPrice.text = "Increase auto clicker root (" + screenRootPrice + " Ayyyluminium)";
-
-		if (GameGlobals.rahe >= h_autoPrice && h_autorahe1buy == true) {
-			autoRahe1.interactable = true;
-		} else {
-			autoRahe1.interactable = false;
+		if (autoRahe1) {
+			screenAutoPrice = h_autoPrice.ToString ();
+			HUDAutoPrice.text = "Buy Auto Clicker (" + screenAutoPrice + " Rahe)";
 		}
 
-		if (GameGlobals.rahe >= h_rahePrize && h_autorahe1buy == false) {
+		screenRootPrice = h_rootPrice.ToString();
+		HUDRootPrice.text = "Increase auto clicker (" + screenRootPrice + " Ayyyluminium)";
+
+		if (autoRahe1) {
+			if (GameGlobals.rahe >= h_autoPrice && h_autorahe1buy == true) {
+				autoRahe1.interactable = true;
+			} else {
+				autoRahe1.interactable = false;
+			}
+		}
+
+		if (GameGlobals.titayyynium >= h_rahePrize && h_autorahe1buy == false) {
 			increaseAuto.interactable = true;
 		} else {
 			increaseAuto.interactable = false;
@@ -114,9 +143,10 @@ public class HUDScript : MonoBehaviour {
 
 	}
 
-	void AutoRahe()
+	public void AutoRahe()
 	{
 		rahe = GameGlobals.GetRahe();
+		h_rahePerSecond = GameGlobals.rahePerSecond;
 		rahe = rahe + h_rahePerSecond;
 		GameGlobals.SetRahe (rahe);
 		Invoke ("AutoRahe", GameGlobals.autoRahe);
@@ -135,6 +165,8 @@ public class HUDScript : MonoBehaviour {
 		h_autorahe1buy = false;
 		GameGlobals.SetAutoRahe1buy(false);
 		autoRahe1.interactable = false;
+		DestroyAutorahe ();
+
 		
 	}
 
@@ -164,15 +196,15 @@ public class HUDScript : MonoBehaviour {
 	{
 		int newPrize;
 		float speed;
-		int tempRahe;
+		int tempTita;
 
 		newPrize = GameGlobals.GetIncreasePrize ();
 		speed = GameGlobals.GetAuto();
-		tempRahe = GameGlobals.GetRahe();
+		tempTita = GameGlobals.GetTitayyynium();
 
 		speed = speed/1.5f;
-		tempRahe = tempRahe - h_rahePrize;
-		GameGlobals.SetRahe (tempRahe);
+		tempTita = tempTita - h_rahePrize;
+		GameGlobals.SetTitayyynium (tempTita);
 
 		h_rahePrize = h_rahePrize * newPrize;
 		newPrize = newPrize * 2;
@@ -216,11 +248,25 @@ public class HUDScript : MonoBehaviour {
 
 	public void ToTheShop()
 	{
-		Application.LoadLevel (3);
+		Application.LoadLevel (4);
 	}
 
 	public void ToTheBattle()
 	{
-		Application.LoadLevel (1);
+		Application.LoadLevel (2);
 	}
+
+	public void DestroyAutorahe()
+	{
+		if (h_autorahe1buy == false) {
+			Destroy (autoRahe1.gameObject);
+		}
+	}
+
+	void OnClick ()
+	{
+		Cursor.SetCursor (cursorTexture, hotSpot, cursorMode);
+	}
+
+
 }
