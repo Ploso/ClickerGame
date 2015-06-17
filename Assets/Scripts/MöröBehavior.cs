@@ -80,7 +80,7 @@ public class MöröBehavior : MonoBehaviour {
 
 	void OnDestroy()
 	{
-		if (dmg == true) {
+		if (dmg == true && Player.mapTimer < Player.p_mapLength) {
 			if (p_shield >= 0){
 				p_shield = GameGlobals.GetShield();
 				p_shield = p_shield -enemyDmg;

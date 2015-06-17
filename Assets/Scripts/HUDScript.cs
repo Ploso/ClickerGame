@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -96,21 +96,21 @@ public class HUDScript : MonoBehaviour {
 		HUDFift.text = "Fifth Ayyylement: " + screenFift;
 
 		screenIncrease = h_rahePrize.ToString();
-		HUDIncrease.text = "Enhance Auto Clicker (" + screenIncrease + " Titayyynium)";
+		HUDIncrease.text = screenIncrease + " Titayyynium";
 
 		screenClick = h_clickPrize.ToString();
-		HUDClick.text = "Increase Rahe from clicks (" + screenClick + " Rahe)";
+		HUDClick.text = screenClick + " Rahe";
 
 		screenCurrentClick = currentClick.ToString();
 		HUDCurrentClick.text = "Current Rahe from a click: " + screenCurrentClick;
 
 		if (autoRahe1) {
 			screenAutoPrice = h_autoPrice.ToString ();
-			HUDAutoPrice.text = "Buy Auto Clicker (" + screenAutoPrice + " Rahe)";
+			HUDAutoPrice.text = screenAutoPrice + " Rahe";
 		}
 
 		screenRootPrice = h_rootPrice.ToString();
-		HUDRootPrice.text = "Increase auto clicker (" + screenRootPrice + " Ayyyluminium)";
+		HUDRootPrice.text = screenRootPrice + " Ayyyluminium";
 
 		if (autoRahe1) {
 			if (GameGlobals.rahe >= h_autoPrice && h_autorahe1buy == true) {

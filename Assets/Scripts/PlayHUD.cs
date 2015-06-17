@@ -10,6 +10,9 @@ public class PlayHUD : MonoBehaviour {
 	public Text HUDLevel;
 	public Text HUDShield;
 
+	public Text debug1;
+	public Text debug2;
+
 	private string screenHp;
 	private string screenAmmo;
 	private string screenRahe;
@@ -20,7 +23,7 @@ public class PlayHUD : MonoBehaviour {
 
 	void Start () {
 		AutoRahe ();
-		p_shield = GameGlobals.GetShield();
+		p_shield = GameGlobals.GetShield(); 
 	}
 
 	void Update () {
@@ -30,6 +33,10 @@ public class PlayHUD : MonoBehaviour {
 		} else {
 			p_shield = GameGlobals.GetShield();
 		}
+
+		debug1.text = "Timer " + Player.mapTimer;
+		debug2.text = "Length " + GameGlobals.mapLength;
+
 		screenHp = GameGlobals.hp.ToString();
 		health.text = "Health: " + screenHp;
 

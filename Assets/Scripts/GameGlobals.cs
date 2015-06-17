@@ -9,7 +9,7 @@ public class GameGlobals : MonoBehaviour {
 	public static int ayyyntimatter = 0;
 	public static int fiftAyyylement = 0;
 
-	public static int ammo = 1000;
+	public static int ammo = 0;
 	public static int hp = 100;
 	public static int shield = 0;
 	public static int maxShield = 0;
@@ -239,5 +239,6 @@ public class GameGlobals : MonoBehaviour {
 	{
 		shieldUnBought = ssb;
 	}
+
 	
 }

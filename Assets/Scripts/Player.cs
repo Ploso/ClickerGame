@@ -8,8 +8,8 @@ public class Player : MonoBehaviour {
 	private int interval;
 	private int maxInterval;
 	private int minInterval;
-	private int mapTimer;
-	private int p_mapLength;
+	public static int mapTimer;
+	public static int p_mapLength;
 
 	private int level;
 
@@ -96,10 +96,11 @@ public class Player : MonoBehaviour {
 		}
 
 			level++;
-			p_mapLength = p_mapLength + level;
+			p_mapLength = p_mapLength + level * 20;
 			GameGlobals.SetCurrentLevel(level);
 			GameGlobals.SetMapLength(p_mapLength);
 			Application.LoadLevel(1);
+			Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
 		}
 	}
