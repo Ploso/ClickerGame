@@ -14,6 +14,8 @@ public class MöröBehavior : MonoBehaviour {
 	public int bounty;
 	private int p_shield;
 
+	private int p_plDmg;
+
 	public SpriteRenderer sprite;
 	private int sortingOrder;
 
@@ -28,6 +30,7 @@ public class MöröBehavior : MonoBehaviour {
 		sprite = GetComponent<SpriteRenderer> ();
 		sortingOrder = 0;
 		p_shield = GameGlobals.GetShield ();
+		p_plDmg = GameGlobals.GetPlayerDamage ();
 
 		playerHp = GameGlobals.GetHp ();
 		if (gameObject.name.Contains ("Moro2"))
@@ -64,7 +67,7 @@ public class MöröBehavior : MonoBehaviour {
 	void OnMouseDown ()
 	{
 		if (ammo > 0) {
-			life --;
+			life = life - p_plDmg;
 		}
 	}
 
