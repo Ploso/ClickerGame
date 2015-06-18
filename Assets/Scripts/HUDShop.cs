@@ -34,6 +34,7 @@ public class HUDShop : MonoBehaviour {
 	public Button buyAmmo1000;
 	public Button heal;
 	public Button buyShield;
+	public Button upgradeWeapon;
 	
 	private int rahe;
 	private int ayyPrice;
@@ -47,8 +48,10 @@ public class HUDShop : MonoBehaviour {
 	private int healPrice;
 	private int s_hp;
 	private int shieldPrice;
+	private int upgradeWeaponPrice;
 
 	private bool s_shieldUnBought;
+	private bool s_upgradeBought;
 
 	void Start () {
 
@@ -61,8 +64,10 @@ public class HUDShop : MonoBehaviour {
 		ammo1000Price = 100;
 		healPrice = 1;
 		shieldPrice = 1;
+		upgradeWeaponPrice = 100;
 
 		s_shieldUnBought = GameGlobals.GetShieldBought();
+		s_upgradeBought = GameGlobals.GetUpgradeBought ();
 		s_hp = GameGlobals.GetHp();
 
 		buyAyy = buyAyy.GetComponent<Button> ();
@@ -77,6 +82,7 @@ public class HUDShop : MonoBehaviour {
 		buyAmmo1000 = buyAmmo1000.GetComponent<Button> ();
 		heal = heal.GetComponent<Button> ();
 		buyShield = buyShield.GetComponent<Button> ();
+		upgradeWeapon = upgradeWeapon.GetComponent<Button> ();
 
 		AutoRahe ();
 			
@@ -164,6 +170,12 @@ public class HUDShop : MonoBehaviour {
 			buyShield.interactable = true;
 		} else {
 			buyShield.interactable = false;
+		}
+
+		if (GameGlobals.fiftAyyylement >= upgradeWeaponPrice && s_upgradeBought == true) {
+			upgradeWeapon.interactable = true;
+		} else {
+			upgradeWeapon.interactable = false;
 		}
 		
 		
@@ -305,5 +317,16 @@ public class HUDShop : MonoBehaviour {
 		s_shieldUnBought = false;
 		GameGlobals.SetShieldBought (s_shieldUnBought);
 		GameGlobals.SetMaxShield (20);
+	}
+
+	public void UpgradeWeapon()
+	{
+		int fifth;
+		fifth = GameGlobals.GetFiftAyyylement ();
+		GameGlobals.SetPlayerDamage (3);
+		fifth = fifth - upgradeWeaponPrice;
+		GameGlobals.SetFiftAyyylement (fifth);
+		s_upgradeBought = false;
+		GameGlobals.SetUpgradeBought (s_upgradeBought);
 	}
 }

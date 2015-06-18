@@ -13,6 +13,7 @@ public class GameGlobals : MonoBehaviour {
 	public static int hp = 100;
 	public static int shield = 0;
 	public static int maxShield = 0;
+	public static int plDmg = 1;
 
 	public static float autoRahe = 1f;
 	public static int clickRahe = 1;
@@ -29,6 +30,7 @@ public class GameGlobals : MonoBehaviour {
 
 	public static bool autorahe1buy = true;
 	public static bool shieldUnBought = true;
+	public static bool upgradeUnBought = true;
 
 	public static int GetRahe()
 	{
@@ -239,6 +241,26 @@ public class GameGlobals : MonoBehaviour {
 	{
 		shieldUnBought = ssb;
 	}
+
+	public static int GetPlayerDamage()
+	{
+		return plDmg;
+	}
+	
+	public static void SetPlayerDamage(int pd)
+	{
+		plDmg = pd;
+	}
+	public static bool GetUpgradeBought()
+	{
+		return upgradeUnBought;
+	}
+	
+	public static void SetUpgradeBought(bool sup)
+	{
+		upgradeUnBought = sup;
+	}
+
 
 	
 }
