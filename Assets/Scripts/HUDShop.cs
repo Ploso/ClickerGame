@@ -35,7 +35,8 @@ public class HUDShop : MonoBehaviour {
 	public Button heal;
 	public Button buyShield;
 	public Button upgradeWeapon;
-	
+	public Button sellFifth;
+
 	private int rahe;
 	private int ayyPrice;
 	private int titaPrice;
@@ -49,6 +50,7 @@ public class HUDShop : MonoBehaviour {
 	private int s_hp;
 	private int shieldPrice;
 	private int upgradeWeaponPrice;
+	private int sellPrice;
 
 	private bool s_shieldUnBought;
 	private bool s_upgradeBought;
@@ -65,6 +67,7 @@ public class HUDShop : MonoBehaviour {
 		healPrice = 1;
 		shieldPrice = 1;
 		upgradeWeaponPrice = 100;
+		sellPrice = 10000;
 
 		s_shieldUnBought = GameGlobals.GetShieldBought();
 		s_upgradeBought = GameGlobals.GetUpgradeBought ();
@@ -83,6 +86,7 @@ public class HUDShop : MonoBehaviour {
 		heal = heal.GetComponent<Button> ();
 		buyShield = buyShield.GetComponent<Button> ();
 		upgradeWeapon = upgradeWeapon.GetComponent<Button> ();
+		sellFifth = sellFifth.GetComponent<Button> ();
 
 		AutoRahe ();
 			
@@ -176,6 +180,12 @@ public class HUDShop : MonoBehaviour {
 			upgradeWeapon.interactable = true;
 		} else {
 			upgradeWeapon.interactable = false;
+		}
+
+		if (GameGlobals.fiftAyyylement >= 1) {
+			sellFifth.interactable = true;
+		} else {
+			sellFifth.interactable = false;
 		}
 		
 		
@@ -328,5 +338,17 @@ public class HUDShop : MonoBehaviour {
 		GameGlobals.SetFiftAyyylement (fifth);
 		s_upgradeBought = false;
 		GameGlobals.SetUpgradeBought (s_upgradeBought);
+	}
+
+	public void SellFifth()
+	{
+		int fifth;
+		int tempRahe;
+		fifth = GameGlobals.GetFiftAyyylement ();
+		tempRahe = GameGlobals.GetRahe ();
+		fifth = fifth - 1;
+		tempRahe = tempRahe + sellPrice;
+		GameGlobals.SetFiftAyyylement (fifth);
+		GameGlobals.SetRahe (tempRahe);
 	}
 }

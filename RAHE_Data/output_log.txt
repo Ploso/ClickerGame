@@ -1,0 +1,90 @@
+Initialize engine version: 5.0.2f1 (0b02744d4013)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.032 seconds
+desktop: 1680x1050 59Hz; virtual: 3360x1050 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Initialize engine version: 5.0.2f1 (0b02744d4013)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.031 seconds
+desktop: 1680x1050 59Hz; virtual: 3360x1050 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\System.dll (this message is harmless)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.800302 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 354.
+Total: 0.230676 ms (FindLiveObjects: 0.019027 ms CreateObjectMapping: 0.015807 ms MarkObjects: 0.185302 ms  DeleteObjects: 0.009953 ms)
+
+Initialize engine version: 5.0.2f1 (0b02744d4013)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.031 seconds
+desktop: 1680x1050 59Hz; virtual: 3360x1050 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\c1eleppa\Documents\GitHub\ClickerGame\RAHE_Data\Managed\System.dll (this message is harmless)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.968027 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 354.
+Total: 0.185302 ms (FindLiveObjects: 0.023418 ms CreateObjectMapping: 0.012880 ms MarkObjects: 0.141391 ms  DeleteObjects: 0.007318 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.900112 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 406.
+Total: 0.745892 ms (FindLiveObjects: 0.056790 ms CreateObjectMapping: 0.051228 ms MarkObjects: 0.587521 ms  DeleteObjects: 0.049472 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.031297 ms
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 356.
+Total: 0.719838 ms (FindLiveObjects: 0.064987 ms CreateObjectMapping: 0.059425 ms MarkObjects: 0.543025 ms  DeleteObjects: 0.050936 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.793315 ms
+
+Unloading 110 unused Assets to reduce memory usage. Loaded Objects now: 263.
+Total: 0.418612 ms (FindLiveObjects: 0.029566 ms CreateObjectMapping: 0.019027 ms MarkObjects: 0.156028 ms  DeleteObjects: 0.213404 ms)
+

@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 1
   enemyDmg: 2
-  hit: 40
+  hit: 50
   speed: .00999999978
   bounty: 0
   sprite: {fileID: 0}
